@@ -17,8 +17,8 @@ car_y = 500;
 
 function add()
 {
-     background_imgTag = new Image();
-    background_imgTag.onload = uploadBackground;
+     background_imgTag = new Image(); 
+    background_imgTag.onload = uploadBackground; //setting a function, onloading this variable
     background_imgTag.src = background_image;
     
     rover_imgTag = new Image();
@@ -32,10 +32,9 @@ function add()
 
     }
 
-
-    function uploadcar()
+    function uploadcar1()
     {
-    ctx.drawImage(car_imgTag , car_x , car_y , car_width , car_height);
+    ctx.drawImage(car1_imgTag , car1_x , car1_y , car1_width , car1_height);
        
     }
 
@@ -47,25 +46,25 @@ function add()
     console.log(keyPressed);
        if (keyPressed == '38')
          {
-           up();
+           car1_up();
            console.log("up");
         }  
 
         if (keyPressed == '40')
          {
-           down();
+           car_1down();
            console.log("down");
         }  
 
         if (keyPressed == '37')
          {
-           left();
+           car1_left();
            console.log("left");
         }  
 
         if (keyPressed == '39')
          {
-           right();
+           car1_right();
            console.log("right");
         }  
     }
