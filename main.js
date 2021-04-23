@@ -1,29 +1,39 @@
 canvas = document.getElementById('myCanvas');
 ctx = canvas.getContext("2d");
 
-
-
-car_width = 100;
-car_height = 90;
-
+background_image = "https://m.media-amazon.com/images/I/611EgAv4LtL._AC_SL1134_.jpg"
 
 console.log("background_image = " + background_image);
 
+car1_width = 120;
+car1_height = 70;
 
-car_image = "Car1.png";
+car1_x = 10;
+car1_y = 10;
 
-car_x = 10;
-car_y = 500;
+car1_image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKiFiW7n69_LZZDehREUEDCeBQLBfelQirZw&usqp=CAU";
+
+car2_width = 120;
+car2_height = 70;
+
+car2_x = 10;
+car2_y = 100;
+
+car2_image = "https://cdn4.iconfinder.com/data/icons/race-cartoon/512/val42_7-512.png";
 
 function add()
 {
-     background_imgTag = new Image(); 
-    background_imgTag.onload = uploadBackground; //setting a function, onloading this variable
+     background_imgTag = new Image();
+    background_imgTag.onload = uploadBackground;
     background_imgTag.src = background_image;
     
-    rover_imgTag = new Image();
-    rover_imgTag.onload = uploadrover;
-    rover_imgTag.src = rover_image;
+    car1_imgTag = new Image();
+    car1_imgTag.onload = uploadcar1;
+    car1_imgTag.src = car1_image;
+  
+    car2_imgTag = new Image();
+    car2_imgTag.onload = uploadcar2;
+    car2_imgTag.src = car2_image;
 }
 
     function uploadBackground()
@@ -32,9 +42,14 @@ function add()
 
     }
 
+
     function uploadcar1()
     {
     ctx.drawImage(car1_imgTag , car1_x , car1_y , car1_width , car1_height);
+      
+  function uploadcar2()
+    {
+    ctx.drawImage(car2_imgTag , car2_x , car2_y , car2_width , car2_height);    
        
     }
 
@@ -52,7 +67,7 @@ function add()
 
         if (keyPressed == '40')
          {
-           car_1down();
+           car1_down();
            console.log("down");
         }  
 
@@ -66,56 +81,78 @@ function add()
          {
            car1_right();
            console.log("right");
-        }  
+        } 
+      
+       if (keyPressed == '87')
+         {
+           car2_up();
+           console.log("key w");
+        } 
+      if (keyPressed == '83')
+         {
+           car2_down();
+           console.log("key s");
+        } 
+       if (keyPressed == '65')
+         {
+           car2_left();
+           console.log("key a");
+        } 
+       if (keyPressed == '68')
+         {
+           car2_right();
+           console.log("key d");
+        } 
+      
     }
-
 
     function up()
     {
-      if(car_y >= 0)
+      if(rover_y >= 0)
       {
-        car_y = car_y - 10;
-        console.log("When up arrow is pressed, x = " + car_x + " | y = " + car_y);
+        rover_y = rover_y - 10;
+        console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
        uploadBackground()
-       uploadrover()
-
+      uploadcar1()
+      uploadcar2()  
       } 
     }
 
     function down()
     {
-      if(car_y <= 500)
+      if(rover_y <= 500)
       {
-        car_y = car_y + 10;
-        console.log("When up arrow is pressed, x = " + car_x + " | y = " + car_y);
+        rover_y = rover_y + 10;
+        console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
        uploadBackground()
-       uploadrover()
-            
+       uploadcar1()
+       uploadcar2()      
       } 
     }
 
        
     function left()
     {
-      if(car_x >= 0)
+      if(rover_x >= 0)
       {
-        car_x = car_x - 10;
-        console.log("When up arrow is pressed, x = " + car_x + " | y = " + car_y);
+        rover_x = rover_x - 10;
+        console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
        uploadBackground()
-       uploadrover()
-            
+       uploadcar1()
+       uploadcar2()       
       } 
     }
 
     function right()
     {
-      if(car_x <= 700)
+      if(rover_x <= 700)
       {
-        car_x = car_x + 10;
-        console.log("When up arrow is pressed, x = " + car_x + " | y = " + car_y);
+        rover_x = rover_x + 10;
+        console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
        uploadBackground()
-       uploadrover()
-            
+       uploadcar1()
+       uploadcar2()     
       } 
     }
+          
       
