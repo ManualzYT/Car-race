@@ -145,14 +145,22 @@ function add()
 
     function right()
     {
-      if(rover_x <= 700)
-      {
         rover_x = rover_x + 10;
         console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
        uploadBackground()
        uploadcar1()
        uploadcar2()     
       } 
-    }
-          
+
+      if (car1_x > 700)
+      {
+        console.log("car1 Won")
+        document.getElementById('game_status').innerHTML = "Car 1 has won!!! (and car 2 sucks)";
+      }
+      
+      if (car2_x > 700)
+      {
+        console.log("car2 Won")
+        document.getElementById('game_status').innerHTML = "Car 2 has won!!! (and car 1 sucks)";  
+      }
       
